@@ -10,16 +10,8 @@ namespace itransition_3
     {
         private static void SendError(int errorNumber)
         {
-            // 0: The amount of arguments is even
-            // 1: The amouny of arguments is <3
-            // 2: The chosen option doesn't exist
-
-
             switch (errorNumber)
             {
-                //case 0:
-
-                //    break;
                 case 0:
                     Console.WriteLine("Incorrect input of parameters. Please, make sure that the amount of parameters is even, greater than three & there are no repeating parameters.");
                     Console.WriteLine("Examples of incorrect launch:");
@@ -48,9 +40,8 @@ namespace itransition_3
 
         static void Main(string[] args)
         {
-            if (args.Length % 2 == 1 && args.Length >= 3)
+            if (args.Length % 2 == 1 && args.Length >= 3 && args.Length == args.Distinct().Count())
             {
-
                 bool isPlaying = true;
                 while (isPlaying)
                 {
@@ -82,7 +73,6 @@ namespace itransition_3
                     else if (playerInput.All(Char.IsDigit) && playerInput != string.Empty)
                     {
                         int intPlayerInput = Convert.ToInt32(playerInput) - 1;
-                        //HMAC_Generation.GetHMAC(args[intPlayerInput], key);
                         Console.WriteLine($"You chose {args[intPlayerInput]}!");
                         GameProcesses.ComputeAITurn(args, playerInput, AIturn, GameProcesses.GetShiftedTable(args, intPlayerInput));
                         Console.WriteLine($"HMAC key: {Convert.ToHexString(key)}");
