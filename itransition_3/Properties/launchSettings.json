@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "itransition_3": {
+      "commandName": "Project",
+      "commandLineArgs": "rock paper scissors lizard Spock"
+    }
+  }
+}
